@@ -14,15 +14,6 @@ import 'package:flutter/material.dart';
 
 import 'package:app_doc/app.dart';
 
-/*
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
-}
-*/
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -33,7 +24,7 @@ Future main() async {
   final FirebaseAuth auth = FirebaseAuth.instance;
   Widget _currentScreen = LoginScreen();
 
-  // Verificar si el usuario está logueado
+// Verificar si el usuario está logueado
   User? user = auth.currentUser;
 
   if (user != null) {
@@ -64,6 +55,7 @@ class MyApp extends StatelessWidget {
         //Se indica que el tema tiene un brillo luminoso/claro
         brightness: Brightness.light,
         primarySwatch: Colors.pink,
+        secondaryHeaderColor: const Color.fromRGBO(255, 193, 7, 1),
       ),
       //Tema Oscuro, se usa cuando se activa el modo oscuro
       darkTheme: ThemeData(
