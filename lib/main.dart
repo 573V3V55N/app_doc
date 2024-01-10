@@ -14,6 +14,27 @@ import 'package:flutter/material.dart';
 
 import 'package:app_doc/app.dart';
 
+MaterialColor colour(Color darkmint1) {
+  final int red = darkmint1.red;
+  final int green = darkmint1.green;
+  final int blue = darkmint1.blue;
+  final int alpha = darkmint1.alpha;
+
+  final Map<int, Color> shades = {
+    50: Color.fromARGB(alpha, red, green, blue),
+    100: Color.fromARGB(alpha, red, green, blue),
+    200: Color.fromARGB(alpha, red, green, blue),
+    300: Color.fromARGB(alpha, red, green, blue),
+    400: Color.fromARGB(alpha, red, green, blue),
+    500: Color.fromARGB(alpha, red, green, blue),
+    600: Color.fromARGB(alpha, red, green, blue),
+    700: Color.fromARGB(alpha, red, green, blue),
+    800: Color.fromARGB(alpha, red, green, blue),
+    900: Color.fromARGB(alpha, red, green, blue),
+  };
+  return MaterialColor(darkmint1.value, shades);
+}
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -49,19 +70,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'App Doc',
+      title: 'PxPhotoPro',
       //Tema Principal, se usa cuando no está activo el modo oscuro
       theme: ThemeData(
         //Se indica que el tema tiene un brillo luminoso/claro
         brightness: Brightness.light,
-        primarySwatch: Colors.pink,
-        secondaryHeaderColor: const Color.fromRGBO(255, 193, 7, 1),
+        primarySwatch: colour(Color.fromRGBO(35, 93, 113, 1)),
+        secondaryHeaderColor: Color.fromARGB(255, 204, 0, 255),
       ),
       //Tema Oscuro, se usa cuando se activa el modo oscuro
       darkTheme: ThemeData(
         //Se indica que el tema tiene un brillo oscuro
         brightness: Brightness.dark,
-        primarySwatch: Colors.pink,
+        primarySwatch: colour(Color.fromRGBO(35, 93, 113, 1)),
+        secondaryHeaderColor: Color.fromARGB(255, 204, 0, 255),
       ),
       routes: {
         '/': (context) => SplashScreen(
